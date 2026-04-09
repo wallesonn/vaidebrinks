@@ -39,9 +39,9 @@ export default function ToyDetailsPage() {
   if (!toy || !provider) {
     return (
       <EmptyState
-        title="Toy not found"
-        description="The listing you tried to open does not exist in the mock catalog. Return to search and choose another option."
-        action={<Button href="/search">Back to search</Button>}
+        title="Brinquedo não encontrado"
+        description="O anúncio que você tentou abrir não existe no catálogo simulado. Volte à busca e escolha outra opção."
+        action={<Button href="/search">Voltar à busca</Button>}
       />
     );
   }
@@ -55,7 +55,7 @@ export default function ToyDetailsPage() {
       <FlowSteps current={1} />
 
       <SectionHeader
-        eyebrow="Toy details"
+        eyebrow="Detalhes do brinquedo"
         title={toy.name}
         description={toy.summary}
         action={
@@ -73,8 +73,8 @@ export default function ToyDetailsPage() {
           <Card>
             <CardHeader>
               <div>
-                <CardTitle>Why parents love it</CardTitle>
-                <CardDescription>Event-style storytelling, provider details, and trust signals help you choose faster.</CardDescription>
+                <CardTitle>Por que os pais adoram</CardTitle>
+                <CardDescription>História visual, detalhes do fornecedor e sinais de confiança ajudam você a escolher mais rápido.</CardDescription>
               </div>
             </CardHeader>
             <div className="space-y-4 text-sm leading-7 text-slate-600">
@@ -92,8 +92,8 @@ export default function ToyDetailsPage() {
           <Card>
             <CardHeader>
               <div>
-                <CardTitle>Provider information</CardTitle>
-                <CardDescription>Verified vendor profile, response time, and specialties.</CardDescription>
+                <CardTitle>Informações do fornecedor</CardTitle>
+                <CardDescription>Perfil verificado, tempo de resposta e especialidades.</CardDescription>
               </div>
             </CardHeader>
             <div className="grid gap-4 md:grid-cols-[auto_1fr] md:items-start">
@@ -103,7 +103,7 @@ export default function ToyDetailsPage() {
               <div className="space-y-3">
                 <div className="flex flex-wrap items-center gap-2">
                   <h3 className="text-2xl font-black text-slate-900">{provider.name}</h3>
-                  <Badge className="bg-emerald-50 text-emerald-700">Verified</Badge>
+                  <Badge className="bg-emerald-50 text-emerald-700">Verificado</Badge>
                 </div>
                 <p className="text-sm leading-7 text-slate-600">{provider.about}</p>
                 <div className="flex flex-wrap gap-2">
@@ -125,8 +125,8 @@ export default function ToyDetailsPage() {
           <Card>
             <CardHeader>
               <div>
-                <CardTitle>Reviews</CardTitle>
-                <CardDescription>Parents share quick feedback after each celebration.</CardDescription>
+                <CardTitle>Avaliações</CardTitle>
+                <CardDescription>Os pais compartilham feedback rápido após cada comemoração.</CardDescription>
               </div>
             </CardHeader>
             <div className="grid gap-4 md:grid-cols-2">
@@ -150,15 +150,15 @@ export default function ToyDetailsPage() {
           <Card>
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="text-xs font-bold uppercase tracking-[0.24em] text-slate-400">Daily rental</p>
+                <p className="text-xs font-bold uppercase tracking-[0.24em] text-slate-400">Locação diária</p>
                 <p className="mt-2 text-3xl font-black text-slate-900">{formatCurrency(toy.pricePerDay)}</p>
-                <p className="mt-2 text-sm text-slate-500">Includes setup and pickup by the provider.</p>
+                <p className="mt-2 text-sm text-slate-500">Inclui montagem e retirada pelo fornecedor.</p>
               </div>
-              <Badge className="bg-indigo-50 text-indigo-700">{toy.reviewCount} reviews</Badge>
+              <Badge className="bg-indigo-50 text-indigo-700">{toy.reviewCount} avaliações</Badge>
             </div>
             <div className="mt-5 space-y-3 text-sm text-slate-600">
-              <p>Capacity: <span className="font-semibold text-slate-900">{toy.capacity}</span></p>
-              <p>Location: <span className="font-semibold text-slate-900">{toy.location}</span></p>
+              <p>Capacidade: <span className="font-semibold text-slate-900">{toy.capacity}</span></p>
+              <p>Localização: <span className="font-semibold text-slate-900">{toy.location}</span></p>
             </div>
           </Card>
 
@@ -184,15 +184,15 @@ export default function ToyDetailsPage() {
           <Card className="sticky top-24">
             <CardHeader>
               <div>
-                <CardTitle>Ready to reserve?</CardTitle>
-                <CardDescription>Select an available slot and continue to checkout.</CardDescription>
+                <CardTitle>Pronto para reservar?</CardTitle>
+                <CardDescription>Selecione um horário disponível e continue para o pagamento.</CardDescription>
               </div>
             </CardHeader>
             <div className="space-y-4">
               <div className="rounded-3xl bg-slate-50 p-4 text-sm">
-                <p className="text-xs font-bold uppercase tracking-[0.24em] text-slate-400">Selected slot</p>
-                <p className="mt-1 font-bold text-slate-900">{selectedSlot?.label ?? "Pick one"}</p>
-                <p className="mt-1 text-slate-600">{selectedSlot?.status === "limited" ? "Only a few spots remain" : selectedSlot?.status === "available" ? "Available now" : "Sold out"}</p>
+                <p className="text-xs font-bold uppercase tracking-[0.24em] text-slate-400">Horário selecionado</p>
+                <p className="mt-1 font-bold text-slate-900">{selectedSlot?.label ?? "Escolha um"}</p>
+                <p className="mt-1 text-slate-600">{selectedSlot?.status === "limited" ? "Restam poucas vagas" : selectedSlot?.status === "available" ? "Disponível agora" : "Esgotado"}</p>
               </div>
               <Button
                 className="w-full"
@@ -203,10 +203,10 @@ export default function ToyDetailsPage() {
                   router.push("/booking");
                 }}
               >
-                Reserve now
+                Reservar agora
               </Button>
               <Button href="/search" variant="secondary" className="w-full">
-                Back to search
+                Voltar à busca
               </Button>
             </div>
           </Card>

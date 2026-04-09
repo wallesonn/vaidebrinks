@@ -168,13 +168,13 @@ export function Rating({ value, reviews }: { value: number; reviews?: number }) 
   return (
     <div className="flex items-center gap-2 text-sm font-semibold text-slate-700">
       <span className="inline-flex items-center gap-1 text-amber-500">★ {value.toFixed(1)}</span>
-      {reviews !== undefined ? <span className="text-slate-500">({reviews} reviews)</span> : null}
+      {reviews !== undefined ? <span className="text-slate-500">({reviews} avaliações)</span> : null}
     </div>
   );
 }
 
 export function FlowSteps({ current }: { current: number }) {
-  const steps = ["Details", "Payment", "Confirmation"];
+  const steps = ["Detalhes", "Pagamento", "Confirmação"];
 
   return (
     <div className="mb-8 flex items-center gap-3 overflow-x-auto">
@@ -210,7 +210,7 @@ export function EmptyState({
 }: {
   title: string;
   description: string;
-  action?: React.ReactNode;
+  action?: ReactNode;
 }) {
   return (
     <Card className="flex flex-col items-start gap-4 border-dashed bg-white/70 p-8 text-left">
@@ -240,8 +240,8 @@ export function ArtworkFrame({
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.30),transparent_30%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.18),transparent_32%)]" />
       <div className="relative flex h-full flex-col justify-between gap-6">
         <div className="flex items-center justify-between">
-          <Badge className="bg-white/20 text-white backdrop-blur">Ready for party time</Badge>
-          <div className="rounded-2xl bg-white/15 px-3 py-2 text-xs font-semibold backdrop-blur">Safe setup</div>
+          <Badge className="bg-white/20 text-white backdrop-blur">Pronto para a festa</Badge>
+          <div className="rounded-2xl bg-white/15 px-3 py-2 text-xs font-semibold backdrop-blur">Montagem segura</div>
         </div>
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.24em] text-white/75">{subtitle}</p>
@@ -249,16 +249,16 @@ export function ArtworkFrame({
         </div>
         <div className="grid grid-cols-3 gap-3">
           <div className="rounded-3xl bg-white/15 p-4 backdrop-blur">
-            <p className="text-xs font-semibold text-white/75">Set up</p>
+            <p className="text-xs font-semibold text-white/75">Montagem</p>
             <p className="mt-2 text-lg font-black">45 min</p>
           </div>
           <div className="rounded-3xl bg-white/15 p-4 backdrop-blur">
-            <p className="text-xs font-semibold text-white/75">Guests</p>
-            <p className="mt-2 text-lg font-black">Kids love it</p>
+            <p className="text-xs font-semibold text-white/75">Convidados</p>
+            <p className="mt-2 text-lg font-black">A criançada adora</p>
           </div>
           <div className="rounded-3xl bg-white/15 p-4 backdrop-blur">
-            <p className="text-xs font-semibold text-white/75">Mood</p>
-            <p className="mt-2 text-lg font-black">Playful</p>
+            <p className="text-xs font-semibold text-white/75">Clima</p>
+            <p className="mt-2 text-lg font-black">Divertido</p>
           </div>
         </div>
       </div>

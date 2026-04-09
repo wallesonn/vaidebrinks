@@ -36,9 +36,9 @@ export default function PaymentPage() {
   if (!toy) {
     return (
       <EmptyState
-        title="No reservation ready"
-        description="Select a toy and fill the booking step before simulating payment."
-        action={<Button href="/search">Browse toys</Button>}
+        title="Nenhuma reserva pronta"
+        description="Selecione um brinquedo e preencha a etapa de reserva antes de simular o pagamento."
+        action={<Button href="/search">Explorar brinquedos</Button>}
       />
     );
   }
@@ -53,7 +53,7 @@ export default function PaymentPage() {
       setLoading(false);
 
       if (!booking) {
-        setError("Payment could not be completed. Please check your selected slot and try again.");
+        setError("O pagamento não pôde ser concluído. Verifique o horário selecionado e tente novamente.");
         return;
       }
 
@@ -65,9 +65,9 @@ export default function PaymentPage() {
     <div className="space-y-8 pb-10">
       <FlowSteps current={2} />
       <SectionHeader
-        eyebrow="Checkout"
-        title="Complete your simulated payment"
-        description="This checkout mirrors a real product experience, but everything is powered by mocked local state."
+        eyebrow="Pagamento"
+        title="Conclua seu pagamento simulado"
+        description="Este checkout imita uma experiência real, mas tudo é alimentado por estado local simulado."
       />
 
       <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
@@ -82,15 +82,15 @@ export default function PaymentPage() {
         </div>
 
         <div className="space-y-6">
-          <SummaryCard toy={toy} date={draft.date} slotLabel={selectedSlot?.label ?? "Choose a slot"} />
+          <SummaryCard toy={toy} date={draft.date} slotLabel={selectedSlot?.label ?? "Escolha um horário"} />
           <div className="rounded-[28px] border border-slate-200 bg-white p-6">
-            <p className="text-xs font-bold uppercase tracking-[0.24em] text-slate-400">Payment hint</p>
+            <p className="text-xs font-bold uppercase tracking-[0.24em] text-slate-400">Dica de pagamento</p>
             <p className="mt-2 text-sm leading-6 text-slate-600">
-              Use any fake card data. Submitting creates a new confirmed booking and takes you to the confirmation page.
+              Use qualquer dado falso de cartão. Ao enviar, uma nova reserva confirmada é criada e você é levado para a página de confirmação.
             </p>
           </div>
           <Button href="/booking" variant="secondary" className="w-full">
-            Back to booking
+            Voltar para a reserva
           </Button>
         </div>
       </div>

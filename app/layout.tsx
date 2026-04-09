@@ -4,13 +4,13 @@ import "./globals.css";
 import { Providers } from "@/app/providers";
 
 export const metadata: Metadata = {
-  title: "BrinKids | Party toys booked like events",
-  description: "A playful booking marketplace for parents and children’s party equipment.",
+  title: "BrinKids | Brinquedos de festa reservados como eventos",
+  description: "Uma plataforma divertida de reservas para pais e equipamentos de festa infantil.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body>
         <Providers>{children}</Providers>
       </body>

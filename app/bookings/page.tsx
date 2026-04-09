@@ -18,14 +18,14 @@ export default function MyBookingsPage() {
   return (
     <div className="space-y-8 pb-10">
       <SectionHeader
-        eyebrow="Reservations"
-        title="My bookings"
-        description="Track confirmed, pending, and canceled reservations in one place, just like a ticket dashboard."
+        eyebrow="Reservas"
+        title="Minhas reservas"
+        description="Acompanhe reservas confirmadas, pendentes e canceladas em um só lugar, como um painel de ingressos."
         action={
           <div className="flex flex-wrap items-center gap-2">
-            <Badge className="bg-indigo-50 text-indigo-700">{bookings.length} total</Badge>
+            <Badge className="bg-indigo-50 text-indigo-700">{bookings.length} no total</Badge>
             <Button href="/search" variant="secondary">
-              Browse more
+              Explorar mais
             </Button>
           </div>
         }
@@ -42,7 +42,7 @@ export default function MyBookingsPage() {
                 filter === status ? "bg-indigo-600 text-white" : "bg-slate-100 text-slate-600 hover:bg-slate-200"
               }`}
             >
-              {status === "all" ? "All bookings" : status}
+              {status === "all" ? "Todas" : status === "confirmed" ? "Confirmadas" : status === "pending" ? "Pendentes" : "Canceladas"}
             </button>
           ))}
         </div>
@@ -56,9 +56,9 @@ export default function MyBookingsPage() {
         </div>
       ) : (
         <EmptyState
-          title="No bookings in this filter"
-          description="Try a different status tab or create a new reservation from the catalog."
-          action={<Button href="/search">Find a toy</Button>}
+          title="Nenhuma reserva neste filtro"
+          description="Tente outra aba de status ou crie uma nova reserva no catálogo."
+          action={<Button href="/search">Encontrar brinquedo</Button>}
         />
       )}
 
@@ -70,7 +70,7 @@ export default function MyBookingsPage() {
             </div>
             <div>
               <p className="text-sm font-bold text-slate-900">Ticket-like reservations</p>
-              <p className="text-sm text-slate-600">Each booking keeps toy, slot, and party details together.</p>
+              <p className="text-sm text-slate-600">Cada reserva mantém brinquedo, horário e detalhes da festa juntos.</p>
             </div>
           </div>
         </Card>
@@ -81,7 +81,7 @@ export default function MyBookingsPage() {
             </div>
             <div>
               <p className="text-sm font-bold text-slate-900">Mock status controls</p>
-              <p className="text-sm text-slate-600">You can cancel a confirmed booking to see status updates live.</p>
+              <p className="text-sm text-slate-600">Você pode cancelar uma reserva confirmada para ver a atualização de status em tempo real.</p>
             </div>
           </div>
         </Card>

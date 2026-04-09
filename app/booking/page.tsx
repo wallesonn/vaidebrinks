@@ -34,9 +34,9 @@ export default function BookingPage() {
   if (!toy) {
     return (
       <EmptyState
-        title="No toy selected yet"
-        description="Open a toy page and choose an available slot before moving to booking."
-        action={<Button href="/search">Browse toys</Button>}
+        title="Nenhum brinquedo selecionado ainda"
+        description="Abra a página de um brinquedo e escolha um horário disponível antes de continuar para a reserva."
+        action={<Button href="/search">Explorar brinquedos</Button>}
       />
     );
   }
@@ -46,15 +46,15 @@ export default function BookingPage() {
     router.push("/payment");
   };
 
-  const selectedSlotLabel = selectedSlot?.label ?? "Choose a slot";
+  const selectedSlotLabel = selectedSlot?.label ?? "Escolha um horário";
 
   return (
     <div className="space-y-8 pb-10">
       <FlowSteps current={1} />
       <SectionHeader
-        eyebrow="Booking"
-        title="Enter your party details"
-        description="This step feels like ordering a ticket for your party toy. We keep the selected toy and slot visible the entire time."
+        eyebrow="Reserva"
+        title="Informe os detalhes da festa"
+        description="Esta etapa parece comprar um ingresso para o brinquedo da sua festa. Mantemos o brinquedo e o horário selecionados visíveis o tempo todo."
       />
 
       <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
@@ -62,10 +62,10 @@ export default function BookingPage() {
           <BookingFormFields value={form} onChange={(patch) => setForm((current) => ({ ...current, ...patch }))} />
           <div className="flex flex-wrap gap-3">
             <Button onClick={handleContinue} size="lg" className="min-w-[180px]">
-              Continue to payment
+              Continuar para o pagamento
             </Button>
             <Button href={`/toy/${toy.slug}`} variant="secondary" size="lg">
-              Adjust slot
+              Ajustar horário
             </Button>
           </div>
         </div>
@@ -73,9 +73,9 @@ export default function BookingPage() {
         <div className="space-y-6">
           <SummaryCard toy={toy} date={draft.date} slotLabel={selectedSlotLabel} />
           <div className="rounded-[28px] border border-indigo-100 bg-indigo-50 p-6 text-sm leading-6 text-indigo-900">
-            <p className="font-black">Helpful reminder</p>
+            <p className="font-black">Lembrete útil</p>
             <p className="mt-2 text-indigo-900/80">
-              If a slot appears sold out, return to the listing page and pick another time. Only available slots can be reserved.
+              Se um horário aparecer como esgotado, volte à página da listagem e escolha outro. Apenas horários disponíveis podem ser reservados.
             </p>
           </div>
         </div>

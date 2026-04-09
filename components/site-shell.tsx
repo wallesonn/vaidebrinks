@@ -2,17 +2,18 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import type { ReactNode } from "react";
 import { CalendarHeart, House, PartyPopper, Ticket } from "lucide-react";
 import { useApp } from "@/components/app-provider";
 import { Button, cn } from "@/components/ui";
 
 const navItems = [
-  { href: "/", label: "Home", icon: House },
-  { href: "/search", label: "Browse", icon: PartyPopper },
-  { href: "/bookings", label: "My Bookings", icon: Ticket },
+  { href: "/", label: "Início", icon: House },
+  { href: "/search", label: "Explorar", icon: PartyPopper },
+  { href: "/bookings", label: "Minhas reservas", icon: Ticket },
 ];
 
-export function SiteShell({ children }: { children: React.ReactNode }) {
+export function SiteShell({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const { bookings } = useApp();
 
@@ -26,7 +27,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
             </div>
             <div>
               <p className="text-lg font-black tracking-tight">BrinKids</p>
-              <p className="text-xs font-semibold text-slate-500">Party toys, booked like events</p>
+              <p className="text-xs font-semibold text-slate-500">Brinquedos de festa, reservados como eventos</p>
             </div>
           </Link>
 
@@ -52,10 +53,10 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
 
           <div className="flex items-center gap-3">
             <div className="hidden rounded-2xl bg-indigo-50 px-4 py-2 text-sm font-semibold text-indigo-700 sm:block">
-              {bookings.length} reservations
+              {bookings.length} reservas
             </div>
             <Button href="/search" variant="primary" size="sm" className="hidden sm:inline-flex">
-              Find toys
+              Encontrar brinquedos
             </Button>
           </div>
         </div>
@@ -65,14 +66,14 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
 
       <footer className="border-t border-white/70 bg-white/70">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-8 text-sm text-slate-500 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-          <p>Made for parents, providers, and unforgettable parties.</p>
+          <p>Feito para pais, fornecedores e festas inesquecíveis.</p>
           <div className="flex items-center gap-3">
             <Link href="/search" className="font-semibold text-indigo-600 hover:text-indigo-700">
-              Browse toys
+              Explorar brinquedos
             </Link>
             <span className="text-slate-300">•</span>
             <Link href="/bookings" className="font-semibold text-indigo-600 hover:text-indigo-700">
-              View bookings
+              Ver reservas
             </Link>
           </div>
         </div>

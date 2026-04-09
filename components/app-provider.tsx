@@ -16,7 +16,7 @@ const defaultDraft: BookingDraft = {
   childName: "",
   childAge: "",
   address: "",
-  eventType: "Birthday",
+  eventType: "Aniversário",
   childrenCount: "",
   notes: "",
   buyerName: "",
