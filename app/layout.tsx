@@ -4,7 +4,7 @@ import "./globals.css";
 import { Providers } from "@/app/providers";
 
 export const metadata: Metadata = {
-  title: "BrinKids | Brinquedos de festa reservados como eventos",
+  title: "Vai de Brinks | Brinquedos de festa reservados como eventos",
   description: "Uma plataforma divertida de reservas para pais e equipamentos de festa infantil.",
 };
 
