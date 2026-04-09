@@ -1,0 +1,10 @@
+.git
+.gitignore
+.next
+node_modules
+docs
+vaidebrinks-docker
+*.log
+.env
+.env.*
+.DS_Store
