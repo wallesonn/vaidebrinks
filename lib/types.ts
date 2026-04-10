@@ -105,3 +105,35 @@ export type AppState = {
   draft: BookingDraft;
   bookings: Booking[];
 };
+
+export type UserRole = "pai" | "empresa";
+
+export type User = {
+  id: string;
+  name: string;
+  email: string;
+  role: UserRole;
+  city: string;
+  avatarInitials: string;
+};
+
+export type SchoolEventStatus = "aberto" | "encerrado" | "em_breve";
+
+export type SchoolEvent = {
+  id: string;
+  title: string;
+  school: string;
+  city: string;
+  date: string;
+  time: string;
+  description: string;
+  category: string;
+  ageRange: string;
+  capacity: number;
+  enrolled: number;
+  status: SchoolEventStatus;
+  organizer: string;
+  address: string;
+  free: boolean;
+  price?: number;
+};

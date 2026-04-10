@@ -1,4 +1,4 @@
-import type { Booking, Provider, Toy } from "@/lib/types";
+import type { Booking, Provider, SchoolEvent, Toy, User } from "@/lib/types";
 import { formatDateLabel, makeBookingId } from "@/lib/utils";
 
 const buildSlots = (statuses: ("available" | "limited" | "sold_out")[]) =>
@@ -407,6 +407,164 @@ export function getFirstBookableSlot(toy: Toy) {
     }
   }
 
-  const firstSchedule = toy.schedules[0];
-  return firstSchedule ? { date: firstSchedule.date, slotId: firstSchedule.slots[0]?.id ?? "" } : null;
+  return null;
+}
+
+export const mockUsers: User[] = [
+  { id: "pai-1", name: "Olivia Santos", email: "olivia@email.com", role: "pai", city: "São Paulo", avatarInitials: "OS" },
+  { id: "pai-2", name: "Carlos Mendes", email: "carlos@email.com", role: "pai", city: "Rio de Janeiro", avatarInitials: "CM" },
+  { id: "pai-3", name: "Priya Shah", email: "priya@email.com", role: "pai", city: "Curitiba", avatarInitials: "PS" },
+  { id: "emp-1", name: "Sunshine Play Co.", email: "contato@sunshineplay.com", role: "empresa", city: "Austin", avatarInitials: "SP" },
+  { id: "emp-2", name: "Bubble Bounce Studio", email: "contato@bubblebounce.com", role: "empresa", city: "Orlando", avatarInitials: "BB" },
+  { id: "emp-3", name: "Tiny Adventures Rental", email: "contato@tinyadventures.com", role: "empresa", city: "San Diego", avatarInitials: "TA" },
+];
+
+export const mockSchoolEvents: SchoolEvent[] = [
+  {
+    id: "evt-1",
+    title: "Festa da Primavera",
+    school: "Escola Municipal Jardim das Flores",
+    city: "São Paulo",
+    date: "2026-09-22",
+    time: "09:00 - 13:00",
+    description: "Celebração anual da primavera com atividades ao ar livre, gincanas, músicas e brinquedos infláveis. Venha fantasiado!",
+    category: "Festa Temática",
+    ageRange: "4 a 10 anos",
+    capacity: 120,
+    enrolled: 87,
+    status: "aberto",
+    organizer: "Diretoria Pedagógica",
+    address: "Av. das Flores, 340 - Jardim Paulista, São Paulo",
+    free: true,
+  },
+  {
+    id: "evt-2",
+    title: "Olimpíadas Escolares 2026",
+    school: "Colégio Estadual Rio Verde",
+    city: "Rio de Janeiro",
+    date: "2026-05-15",
+    time: "08:00 - 17:00",
+    description: "Competições esportivas entre turmas com atividades recreativas, tobogãs e arena inflável. Torcida liberada!",
+    category: "Evento Esportivo",
+    ageRange: "6 a 14 anos",
+    capacity: 200,
+    enrolled: 200,
+    status: "encerrado",
+    organizer: "Coordenação de Esportes",
+    address: "Rua das Laranjeiras, 890 - Laranjeiras, Rio de Janeiro",
+    free: true,
+  },
+  {
+    id: "evt-3",
+    title: "Semana da Criança",
+    school: "Escola Infantil Pequenos Gênios",
+    city: "Curitiba",
+    date: "2026-10-10",
+    time: "10:00 - 15:00",
+    description: "Uma semana dedicada às crianças com estações de brincadeiras, piscina de bolinhas, castelo inflável e muita diversão!",
+    category: "Semana Temática",
+    ageRange: "2 a 8 anos",
+    capacity: 80,
+    enrolled: 43,
+    status: "aberto",
+    organizer: "Grêmio de Pais e Mestres",
+    address: "Rua Bom Jesus, 220 - Bairro Alto, Curitiba",
+    free: false,
+    price: 15,
+  },
+  {
+    id: "evt-4",
+    title: "Gincana da Amizade",
+    school: "Escola Particular Arco-Íris",
+    city: "São Paulo",
+    date: "2026-06-20",
+    time: "09:00 - 12:00",
+    description: "Gincana interativa com equipes mistas, brincadeiras de equipe, circuito de obstáculos e premiação de participação.",
+    category: "Gincana",
+    ageRange: "5 a 12 anos",
+    capacity: 150,
+    enrolled: 110,
+    status: "aberto",
+    organizer: "Professores Coordenadores",
+    address: "Alameda Santos, 1200 - Jardins, São Paulo",
+    free: true,
+  },
+  {
+    id: "evt-5",
+    title: "Festa Junina 2026",
+    school: "EMEF Dom Pedro II",
+    city: "Belo Horizonte",
+    date: "2026-06-13",
+    time: "14:00 - 20:00",
+    description: "A tradicional festa junina com quadrilha, comidas típicas, brincadeiras, tobogã e muito forró!",
+    category: "Festa Junina",
+    ageRange: "Todas as idades",
+    capacity: 300,
+    enrolled: 210,
+    status: "aberto",
+    organizer: "Associação de Pais e Mestres",
+    address: "Rua dos Carijós, 450 - Centro, Belo Horizonte",
+    free: false,
+    price: 10,
+  },
+  {
+    id: "evt-6",
+    title: "Feira de Ciências",
+    school: "Instituto Técnico Santa Cruz",
+    city: "Curitiba",
+    date: "2026-08-28",
+    time: "13:00 - 18:00",
+    description: "Exposição de projetos científicos com espaço recreativo para as crianças menores, escorregador temático e área de experimentos.",
+    category: "Feira Científica",
+    ageRange: "8 a 17 anos",
+    capacity: 180,
+    enrolled: 55,
+    status: "em_breve",
+    organizer: "Departamento de Ciências",
+    address: "Av. Sete de Setembro, 3600 - Rebouças, Curitiba",
+    free: true,
+  },
+  {
+    id: "evt-7",
+    title: "Dia das Crianças Especial",
+    school: "Centro Educacional Novo Horizonte",
+    city: "Rio de Janeiro",
+    date: "2026-10-12",
+    time: "09:00 - 14:00",
+    description: "Celebração do Dia das Crianças com castelo inflável, piscina de bolinhas, combo de escorregador e muita animação!",
+    category: "Festa Temática",
+    ageRange: "3 a 11 anos",
+    capacity: 100,
+    enrolled: 34,
+    status: "em_breve",
+    organizer: "Equipe Pedagógica",
+    address: "Rua da Passagem, 179 - Botafogo, Rio de Janeiro",
+    free: true,
+  },
+  {
+    id: "evt-8",
+    title: "Recreio Solidário",
+    school: "Escola Municipal Esperança",
+    city: "Belo Horizonte",
+    date: "2026-04-25",
+    time: "08:00 - 11:00",
+    description: "Evento recreativo com arrecadação de brinquedos usados. Trazer um brinquedo e participar das atividades com piscina de bolinhas e tobogã.",
+    category: "Evento Solidário",
+    ageRange: "4 a 12 anos",
+    capacity: 90,
+    enrolled: 90,
+    status: "encerrado",
+    organizer: "Conselho Escolar",
+    address: "Rua Padre Eustáquio, 880 - Padre Eustáquio, Belo Horizonte",
+    free: true,
+  },
+];
+
+export const eventCities = ["Todas as cidades", ...Array.from(new Set(mockSchoolEvents.map((e) => e.city)))];
+
+export const eventCategories = ["Todas as categorias", ...Array.from(new Set(mockSchoolEvents.map((e) => e.category)))];
+
+export function getSchoolEventsByCity(city: string) {
+  if (!city || city === "Todas as cidades") return mockSchoolEvents;
+  return mockSchoolEvents.filter((e) => e.city === city);
 }
