@@ -24,3 +24,12 @@ O **Vai de Brinks** é um SaaS frontend para aluguel e reserva de brinquedos de 
 ## Deploy
 
 Veja as instruções de containerização e publicação no Docker Hub na pasta `vaidebrinks-docker` e no arquivo `build.sh`.
+
+## Produção
+
+- A stack de produção usa o diretório `vaidebrinks-docker/`.
+- O domínio padrão configurado no Traefik é `vaidebrinks.fun`.
+- Para trocar o domínio, atualize `APP_DOMAIN` no Portainer e faça o redeploy da stack.
+- Se o navegador mostrar erro de certificado, verifique se o DNS do domínio aponta para a VPS e se o Traefik conseguiu emitir o certificado Let\'s Encrypt.
+
+Consulte também `docs/deploy-docker.md` para as variáveis de ambiente e os passos completos de atualização.
